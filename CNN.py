@@ -124,7 +124,8 @@ for num,each in tqdm(enumerate(test_x)):
     img=each
     num=test_y[num][0]
     img_resize = img.reshape(-1,img_size,img_size,3)
-    predict = model.predict(img_resize)[0]
+    predict = model.predict(img_resize)[0][0]
+    count+=1
     if (predict>0.5):
         label=1
     else:
