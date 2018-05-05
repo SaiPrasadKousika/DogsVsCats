@@ -65,7 +65,7 @@ for each in tqdm(test_x):
         if (predicted_label==test_y[count]):
             correct+=1
         count+=1
-
-print ("Data Statistics \n\nTraining Data: ("+str(train_dogs+train_cats)+")\n\tDogs: "+str(train_dogs)+"\n\tCats: "+str(train_cats))
-print ("\nTesting Data: ("+str(test_cats+test_dogs)+")\n\tDogs: "+str(test_dogs)+"\n\tCats: "+str(test_cats))
-print("\nAccuracy",float(correct)/count)
+if (count>0):
+    print ("Data Statistics \n\nTraining Data: ("+str(train_dogs+train_cats)+")\n\tDogs: "+str(train_dogs)+"\n\tCats: "+str(train_cats))
+    print ("\nTesting Data: ("+str(test_cats+test_dogs)+")\n\tDogs: "+str(test_dogs)+"\n\tCats: "+str(test_cats))
+    print("\nAccuracy",float(correct)/count)
