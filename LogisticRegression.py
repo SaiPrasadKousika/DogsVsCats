@@ -45,7 +45,6 @@ for each in tqdm(test_images):
 #Z = list(zip(X, Y))
 #random.shuffle(Z)
 #X, Y = zip(*Z)
-
 #slice =int((0.2)*len(X))
 #test_x = X[-slice:]
 #test_y = Y[-slice:]
