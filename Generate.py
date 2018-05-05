@@ -15,9 +15,6 @@ import scipy
 img_size=64
 
 
-# In[2]:
-
-
 def read_train_data():
     filename="generated_train.npy"
     path="train"
@@ -101,7 +98,7 @@ for num,img in tqdm(enumerate(test_x)):
         scipy.misc.imsave("MyTest/cat."+str(cats)+'.jpg', img)
 
 
-## Test Data
+## Test Data (OrgTest -> Original Test)
 
 for each in tqdm(test_data):
     
