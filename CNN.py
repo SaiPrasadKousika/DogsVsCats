@@ -10,8 +10,7 @@ from tflearn.layers.core import input_data, dropout, fully_connected
 from tflearn.layers.estimator import regression
 import scipy
 
-
-img_size=60
+img_size=64
 train_dogs=0
 train_cats=0
 test_dogs =0 
