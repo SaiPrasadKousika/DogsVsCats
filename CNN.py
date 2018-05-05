@@ -11,7 +11,7 @@ from tflearn.layers.estimator import regression
 import scipy
 
 
-img_size=64
+img_size=60
 train_dogs=0
 train_cats=0
 test_dogs =0 
@@ -32,7 +32,7 @@ def read_train_data():
             elif ('cat' in each):
                 label=[1,0]
             img_data = cv2.imread(os.path.join(path,each), cv2.IMREAD_COLOR)
-            img_resize = cv2.resize(img_data, (64,64))
+            img_resize = cv2.resize(img_data, (img_size,img_size))
             train_data.append([np.array(img_resize),np.array(label)])
         np.save(filename,train_data)
         print ("Generated train data.!")
@@ -54,7 +54,7 @@ def read_test_data():
             elif ('cat' in each):
                 label=[1,0]
             img_data = cv2.imread(os.path.join(path,each), cv2.IMREAD_COLOR)
-            img_resize = cv2.resize(img_data, (64,64))
+            img_resize = cv2.resize(img_data, (img_size,img_size))
             test_data.append([np.array(img_resize),np.array(label)])
         np.save(filename,test_data)
         print ("Generated test data.!")
@@ -91,24 +91,27 @@ test_x = np.array(test_x).reshape(-1,img_size,img_size,3)
 
 #random.shuffle(train_data)
 tf.reset_default_graph()
-conv_net_1 = input_data(shape=[None, 64, 64,3], name='input')
-conv_net_2 = conv_2d(conv_net_1,32,4,activation="relu")
-conv_net_3 = max_pool_2d(conv_net_2, 2)
+conv_net_1 = input_data(shape=[None, img_size, img_size,3], name='input')
+conv_net_2 = conv_2d(conv_net_1,32,5,activation="relu")
+conv_net_3 = max_pool_2d(conv_net_2, 5)
+print(tf.Print(conv_net_3,data=[0]))
+conv_net_4 = conv_2d(conv_net_3,64,5,activation="relu")
+conv_net_5 = max_pool_2d(conv_net_4, 5)
+print(tf.Print(conv_net_5,data=[0]))
+conv_net_6 = conv_2d(conv_net_5, 128,5, activation="relu")
+conv_net_7 = max_pool_2d(conv_net_6, 5)
+print(tf.Print(conv_net_7,data=[0]))
+conv_net_8 = conv_2d(conv_net_7, 256,5, activation="relu")
+conv_net_9 = max_pool_2d(conv_net_8, 5)
+print(tf.Print(conv_net_9,data=[0]))
 
-conv_net_4 = conv_2d(conv_net_3,64,4,activation="relu")
-conv_net_5 = max_pool_2d(conv_net_4, 2)
-
-conv_net_6 = conv_2d(conv_net_5, 128,4, activation="relu")
-conv_net_7 = max_pool_2d(conv_net_6, 2)
-
-conv_net_8 = conv_2d(conv_net_7, 256,4, activation="relu")
-conv_net_9 = max_pool_2d(conv_net_8, 2)
-
-conv_net_10 = conv_2d(conv_net_9, 512,4, activation="relu")
-conv_net_11 = max_pool_2d(conv_net_10,2)
+conv_net_10 = conv_2d(conv_net_9, 512,5, activation="relu")
+conv_net_11 = max_pool_2d(conv_net_10, 5)
+print(tf.Print(conv_net_11,data=[0]))
 
 conv_net_12 = fully_connected(conv_net_11, 1024, activation="relu")
 conv_net_13 = dropout(conv_net_12, 0.8)
+print(tf.Print(conv_net_13,data=[0]))
 
 conv_net_14 = fully_connected(conv_net_13, 2, activation="softmax")
 conv_net_final = regression(conv_net_14, optimizer="adam", learning_rate=1e-3, loss='categorical_crossentropy', name='targets')
