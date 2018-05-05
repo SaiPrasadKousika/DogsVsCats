@@ -8,7 +8,7 @@ Dogs vs Cats Image Classification using Convolution Neural Networks
 
 *How to Run:*
 
-+ Download Generate.py, LinearRegression.py and CNN.py
++ Download Generate.py, LogisticRegression.py and CNN.py
 + Donwload train.zip and test.zip from https://www.kaggle.com/c/dogs-vs-cats
 + Extract both zips
 + Create Folders MyTrain, MyTest, OrgTest (in Current Directory)
@@ -18,7 +18,7 @@ Dogs vs Cats Image Classification using Convolution Neural Networks
     + Code will move resized test images into OrgTest folder
     + As we don't having exact labels on test images to predict accuracy, we don't use them.
 
-+ Execute 'python3 LinearRegression.py' 
++ Execute 'python3 LogisticRegression.py' 
 + Execute 'python3 CNN.py' 
 
 
