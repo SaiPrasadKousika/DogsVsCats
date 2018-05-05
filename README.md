@@ -1,12 +1,12 @@
 # DogsVsCats
 Dogs vs Cats Image Classification using Convolution Neural Networks
 ---------------------------------------
-EE 769 ML Project
-173050010 - Sai Prasad
-173050050 - Adarsh Rathore
++ EE 769 ML Project
++ 173050010 - Sai Prasad
++ 173050050 - Adarsh Rathore
 
 
-How to Run:
+*How to Run:*
 
 + Download Generate.py, LinearRegression.py and CNN.py
 + Donwload train.zip and test.zip from https://www.kaggle.com/c/dogs-vs-cats
