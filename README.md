@@ -2,7 +2,7 @@
 Dogs vs Cats Image Classification using Convolution Neural Networks
 ---------------------------------------
 + EE 769 ML Project
-+ 173050010 - Sai Prasad
++ 173050010 - Sai Prasad Kousika
 + 173050050 - Adarsh Rathore
 
 
